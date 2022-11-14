@@ -2,22 +2,22 @@
   "DataVersion": 0,
   "Entities": [
     {
-    "id": "{6fef541d-4726-4c2a-b5fe-cac48a20926c}",
+    "id": "{61a997e8-d4a9-49bc-b3ff-acde27618870}",
     "type": "Box",
-    "lastEdited": 1668463018670879,
+    "lastEdited": 1668463350776593,
     "name": "Seat",
     "dimensions": {
-        "x": 0.645568311214447,
+        "x": 0.41696876287460327,
         "y": 0.24523158371448517,
-        "z": 0.645568311214447
+        "z": 0.2649187445640564
     },
-    "created": 1668462078909496,
-    "lastEditedBy": "{c6432dc2-400b-42a6-8937-bae7145a1668}",
+    "created": 1668463271557254,
+    "lastEditedBy": "{5c22edb0-0c89-4ab1-9243-35f3d98c7d71}",
     "queryAACube": {
-        "x": -0.47266674041748047,
-        "y": -0.47266674041748047,
-        "z": -0.47266674041748047,
-        "scale": 0.9453334808349609
+        "x": -0.275764137506485,
+        "y": -0.275764137506485,
+        "z": -0.275764137506485,
+        "scale": 0.55152827501297
     },
     "grab": {
         "grabbable": false,
@@ -28,7 +28,7 @@
     "collisionless": true,
     "ignoreForCollisions": true,
     "script": "(function () {     var clicked = false;     this.clickDownOnEntity = function (entityID, mouseEvent) {         if (clicked){             Entities.editEntity(entityID, { color: { red: 255, green: 0, blue: 0} });             MyAvatar.endSit(Entities.localToWorldPosition(this.position, entityID), Quat.cancelOutRoll(Quat.getFront(this.orientation)));             clicked = false;         } else {             Entities.editEntity(entityID, { color: { red: 0, green: 255, blue: 0} });             MyAvatar.beginSit(Entities.localToWorldPosition(this.position, entityID), Quat.cancelOutRoll(Quat.getFront(this.orientation)));             clicked = true;         }     }; })",
-    "scriptTimestamp": 1668462725506,
+    "scriptTimestamp": 1668462673920,
     "color": {
         "red": 255,
         "green": 0,
@@ -42,6 +42,6 @@
     "isFacingAvatar": false
 }
     ],
-  "Id": "{2491b5e8-4c14-428b-98d3-afbed6dfd5d8}",
+  "Id": "{096e058c-21d5-43ee-832c-64f8f2ef12c8}",
   "Version": 133
 }
