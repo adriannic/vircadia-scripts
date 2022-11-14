@@ -1,0 +1,47 @@
+{
+  "DataVersion": 0,
+  "Entities": [
+    {
+    "id": "{6fef541d-4726-4c2a-b5fe-cac48a20926c}",
+    "type": "Box",
+    "lastEdited": 1668463018670879,
+    "name": "Seat",
+    "dimensions": {
+        "x": 0.645568311214447,
+        "y": 0.24523158371448517,
+        "z": 0.645568311214447
+    },
+    "created": 1668462078909496,
+    "lastEditedBy": "{c6432dc2-400b-42a6-8937-bae7145a1668}",
+    "queryAACube": {
+        "x": -0.47266674041748047,
+        "y": -0.47266674041748047,
+        "z": -0.47266674041748047,
+        "scale": 0.9453334808349609
+    },
+    "grab": {
+        "grabbable": false,
+        "triggerable": true
+    },
+    "damping": 0,
+    "angularDamping": 0,
+    "collisionless": true,
+    "ignoreForCollisions": true,
+    "script": "(function () {     var clicked = false;     this.clickDownOnEntity = function (entityID, mouseEvent) {         if (clicked){             Entities.editEntity(entityID, { color: { red: 255, green: 0, blue: 0} });             MyAvatar.endSit(Entities.localToWorldPosition(this.position, entityID), Quat.cancelOutRoll(Quat.getFront(this.orientation)));             clicked = false;         } else {             Entities.editEntity(entityID, { color: { red: 0, green: 255, blue: 0} });             MyAvatar.beginSit(Entities.localToWorldPosition(this.position, entityID), Quat.cancelOutRoll(Quat.getFront(this.orientation)));             clicked = true;         }     }; })",
+    "scriptTimestamp": 1668462725506,
+    "color": {
+        "red": 255,
+        "green": 0,
+        "blue": 0
+    },
+    "shape": "Cube",
+    "clientOnly": false,
+    "avatarEntity": false,
+    "localEntity": false,
+    "faceCamera": false,
+    "isFacingAvatar": false
+}
+    ],
+  "Id": "{2491b5e8-4c14-428b-98d3-afbed6dfd5d8}",
+  "Version": 133
+}
