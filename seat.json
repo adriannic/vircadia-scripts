@@ -2,17 +2,17 @@
   "DataVersion": 0,
   "Entities": [
     {
-    "id": "{7ca02a9f-382d-4eb3-b8a1-944c088983a6}",
+    "id": "{80d49f41-c658-4c2d-82d6-a455b64396b0}",
     "type": "Box",
-    "lastEdited": 1668463563311944,
+    "lastEdited": 1668527883010785,
     "name": "Seat",
     "dimensions": {
         "x": 0.349914014339447,
         "y": 0.24523158371448517,
         "z": 0.3482469916343689
     },
-    "created": 1668463483647822,
-    "lastEditedBy": "{c26f5b5a-1a21-40f2-9ade-650e5e5e6a3d}",
+    "created": 1668525051203026,
+    "lastEditedBy": "{8d788499-0da7-4663-8267-d3018e7a7e7d}",
     "queryAACube": {
         "x": -0.2756149172782898,
         "y": -0.2756149172782898,
@@ -27,8 +27,8 @@
     "angularDamping": 0,
     "collisionless": true,
     "ignoreForCollisions": true,
-    "script": "(function () {     var clicked = false;     this.clickDownOnEntity = function (entityID, mouseEvent) {         if (clicked){             Entities.editEntity(entityID, { color: { red: 255, green: 0, blue: 0} });             MyAvatar.endSit(Entities.localToWorldPosition(this.position, entityID), Quat.cancelOutRoll(Quat.getFront(this.orientation)));             clicked = false;         } else {             Entities.editEntity(entityID, { color: { red: 0, green: 255, blue: 0} });             MyAvatar.beginSit(Entities.localToWorldPosition(this.position, entityID), Quat.cancelOutRoll(Quat.getFront(this.orientation)));             clicked = true;         }     }; })",
-    "scriptTimestamp": 1668462673920,
+    "script": "(function () {   var seated = false;   var seater = 0;   this.clickDownOnEntity = function (entityID, mouseEvent) {   \tvar dist = Vec3.distance(MyAvatar.position, Entities.getEntityProperties(entityID).position);   \tif (dist > 1) return;   \tif (seated != MyAvatar.isSeated() || ((seated && MyAvatar.isSeated()) && seater != MyAvatar.sessionUUID)) return;     if (seated) {       Entities.editEntity(entityID, { color: { red: 255, green: 0, blue: 0 } });       MyAvatar.endSit(         Entities.localToWorldPosition(this.position, entityID),         Quat.cancelOutRoll(Quat.getFront(this.orientation))       );       seated = false;       seater = 0;     } else {       Entities.editEntity(entityID, { color: { red: 0, green: 255, blue: 0 } });       MyAvatar.beginSit(         Entities.localToWorldPosition(this.position, entityID),         Quat.cancelOutRoll(Quat.getFront(this.orientation))       );       seated = true;       seater = MyAvatar.sessionUUID;     }   }; });",
+    "scriptTimestamp": 1668527867865,
     "color": {
         "red": 255,
         "green": 0,
@@ -42,6 +42,6 @@
     "isFacingAvatar": false
 }
     ],
-  "Id": "{4dffa15f-7502-4f05-8d95-31baa589e1b9}",
+  "Id": "{8a6f090f-b9ea-4a61-bb18-77073bb08d63}",
   "Version": 133
 }
