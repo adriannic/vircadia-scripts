@@ -4,7 +4,7 @@
   this.clickDownOnEntity = function (entityID, mouseEvent) {
   	var dist = Vec3.distance(MyAvatar.position, Entities.getEntityProperties(entityID).position);
   	if (dist > 1) return;
-  	if (seated != MyAvatar.isSeated() || ((seated && MyAvatar.isSeated()) && seater == MyAvatar.sessionUUID)) return;
+  	if (seated != MyAvatar.isSeated() || ((seated && MyAvatar.isSeated()) && seater != MyAvatar.sessionUUID)) return;
     if (seated) {
       Entities.editEntity(entityID, { color: { red: 255, green: 0, blue: 0 } });
       MyAvatar.endSit(
